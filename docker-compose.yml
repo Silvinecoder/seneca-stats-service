@@ -1,0 +1,36 @@
+services:
+  database:
+    image: postgres:latest
+    container_name: stats-db
+    restart: always
+    ports:
+      - "54321:5432"  # Map host port 54321 to container port 5432
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: statsdb
+      PGDATA: /var/lib/postgresql/data/pgdata
+    volumes:
+      - ./drop.sql:/docker-entrypoint-initdb.d/drop.sql
+      - ./seed.sql:/docker-entrypoint-initdb.d/seed.sql
+      - ./.db-data:/var/lib/postgresql/data
+    command: ["postgres", "-c", "log_statement=all"]
+
+  stats-service: 
+    build:
+      context: ./src
+    container_name: stats-service
+    environment:
+      - STATS_DATABASE_HOST=localhost
+      - STATS_DATABASE_PORT=5432
+      - STATS_DATABASE_NAME=statsdb
+      - STATS_DATABASE_SCHEMA=public
+      - STATS_DATABASE_USERNAME=statsuser
+      - STATS_DATABASE_PASSWORD=statspassword
+      - STATS_ENVIRONMENT=testing
+    ports:
+      - "3000:3000"
+    depends_on:
+      - database  # Ensure database is started before the backend
+    command: ["npm", "start", "dev", "migrate-and-seed"]
+

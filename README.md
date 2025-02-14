@@ -1,0 +1,1 @@
+1. In dbConfig add the db variables in github or somewhere else
