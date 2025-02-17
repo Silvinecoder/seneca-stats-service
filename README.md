@@ -1,8 +1,7 @@
 <h1 align="center">Seneca Statistics Service</h1>
 
-The platform needs to track user statistics for specific courses.
-A statistics service is required to store and manage user statistics for each course.
-The service will expose these statistics through an HTTP API.
+The platform is designed to monitor user statistics for individual courses. A dedicated statistics service will be implemented to collect, store, and manage these statistics for each course.
+This service will then make the statistics accessible through an HTTP API.
 
 ## Setup your environment
 ```
