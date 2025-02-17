@@ -17,7 +17,6 @@ npx ts-node src/database-seed/seeds.ts
 Then start your application
 npx ts-node src/index.ts
 
-Test your endpoints with postman
-https://web.postman.co/workspace/a046d3b4-8fd4-4e62-8527-9454eda49867/collection/41168150-78da16b7-4a5a-4cae-bb73-d44eaf236396?action=share&source=copy-link&creator=41168150
+Test your endpoints with Postman: [Statistics Service API](https://web.postman.co/workspace/a046d3b4-8fd4-4e62-8527-9454eda49867/collection/41168150-78da16b7-4a5a-4cae-bb73-d44eaf236396?action=share&source=copy-link&creator=41168150)
 ```
 
