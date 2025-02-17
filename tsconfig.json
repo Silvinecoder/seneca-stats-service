@@ -6,7 +6,8 @@
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "outDir": "./dist",
-    "rootDir": "./src"
+    "rootDir": "./src",
+    "esModuleInterop": true, // This makes express work by allowing import express from 'express'
   },
-  "include": ["src"]
+  "include": ["src/**/*.ts", "test/**/*.ts"]
 }
